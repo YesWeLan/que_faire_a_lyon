@@ -1,0 +1,66 @@
+// ALL
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    @include font_poppins_weight_300;
+    @include transition_all_3_linear;
+}
+
+// HTML
+html
+{
+    overflow-x: hidden;
+    background-color: black;
+
+    // scrollbar 
+    scroll-behavior: smooth;
+    scrollbar-color: black white;
+    scrollbar-width: thin;
+
+    // WEBKIT SCROLLBAR
+    // width scrollbar
+    &::-webkit-scrollbar
+    {
+        width: 10px;
+    }
+
+    // color scrollbar
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: black;
+        //border-radius: 10px;
+    }
+
+    // bg scrollbar
+    &::-webkit-scrollbar-track-piece
+    {
+        background-color: white;
+    }
+
+    // button (top/bottom) scrollbar
+    &::-webkit-scrollbar-button
+    {
+        display: none;
+    }
+
+    // disable android blue highlight when press/touch
+    -webkit-tap-highlight-color: transparent;
+}
+
+// BODY
+body
+{
+    color: black;
+    background-color: white;
+    font-size: 1em;
+}
+
+// LINKS
+a, a:any-link, a:visited
+{
+    text-decoration: none;
+    cursor: pointer;
+}

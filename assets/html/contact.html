@@ -1,0 +1,21 @@
+<div id="container_contact" class="container_contact">
+    <div class="container_formulaire">
+		
+		<p>FORMULAIRE DE CONTACT</p>
+
+		<form class="formulaire">
+
+			<label for="name">Nom</label>
+			<input name="name" class="name_form" type="text" pattern="[a-z]{3,20}" required="required" />
+			
+			<label for="email">E-mail</label>
+			<input name="email" class="email_form" type="email" pattern="^[a-z0-9.\\-_]+[@]{1}[a-z0-9.\\-_]+[.]{1}[a-z]{2,10}$" required="required" />
+
+			<label for="message">Message</label>
+			<textarea name="message" class="message_form" pattern="[A-Za-z0-9]{10,}" required="required"></textarea>
+			
+			<button type="submit" class="submit_form">Envoyer</button>
+
+		</form>
+	</div>
+</div>

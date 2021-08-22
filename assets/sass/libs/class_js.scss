@@ -1,0 +1,250 @@
+// HEADER MENU
+.header_menu_active
+{
+    visibility: visible;
+    z-index: 100;
+    opacity: 1;
+    background-color: black;
+}
+
+.header_link_active
+{
+    visibility: visible;
+    opacity: 1;
+    transition-duration: .5s;
+}
+
+.overflow_y_hidden
+{
+    overflow-y: hidden;
+}
+
+.burger_svg_active
+{
+    display: none;
+}
+
+.cross_svg_active
+{
+    display: block;
+}
+
+// HEADER SCROLL
+.header_scroll
+{
+    background-color: white;
+}
+
+.logo_clair_scroll
+{
+    display: none;
+}
+
+.logo_sombre_scroll
+{
+    display: inline;
+}
+
+.burger_svg_scroll
+{
+    fill: black;
+}
+
+.header_link_color_scroll
+{
+    color: black;
+
+    &:hover
+    {
+        color: black;
+    }
+    
+    &::before,
+    &::after
+    {
+        background-color: black;
+    }
+}
+
+.header_separation_color_scroll
+{
+    color: black;
+}
+
+// DESCRIPTION ACTIVITES
+.container_desc_title_active
+{
+    background-color: black;
+}
+
+.desc_title_active,
+.span_arrow_active
+{
+    color: white;
+}
+
+.desc_active
+{
+    min-height: 150px;
+    max-height: 150px;
+    padding: 15px;
+    visibility: visible;
+    overflow-y: auto;
+    opacity: 1;
+}
+
+.span_arrow_active
+{
+    transform: rotate(90deg);    
+}
+
+// MODAL ADRESSE
+.modal
+{
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    height: 100vh;
+    @include flexbox_column_center_xy;
+    background-color: rgba(0,0,0,.5);
+    animation: $fadeIn;
+    animation-duration: .5s;
+    
+
+    & > .popup
+    {
+        width: 70%;
+        min-height: 150px;
+        background-color: white;
+        position: relative;
+        animation: $glideInRight;
+
+        & > .cross
+        {
+            position: absolute;
+            top: -40px;
+            right: 0px;
+            font-size: 2.5em;
+            transform: translateY(-10%);
+            transition: color .5s linear;
+            z-index: 12;
+            color: white;
+        
+            &:hover 
+            {
+                cursor: pointer;
+                color: rgb(163, 0, 0);
+                transition: color .5s linear;
+            }
+        }
+        
+        & > .lieu
+        {
+            width: 100%;
+            height: 50px;
+            @include flexbox_row_center_xy;
+            align-items: flex-end;
+            text-transform: capitalize;
+            text-decoration: underline;
+            @include font_size_0_9em;
+            text-align: center;
+            padding: 10px 0 5px 0;
+        }
+
+        & > .adr
+        {
+            width: 100%;
+            height: 50px;
+            margin: 0 auto;
+            padding: 10px 0 10px 0;
+            text-align: center;
+            outline: none;
+            border: none;
+            cursor: default;
+            @include font_size_0_8em;
+        }
+
+        & .container_bouton 
+        {
+            width: 100%;
+            height: 50px;
+            @include flexbox_row_center_xy;
+            padding: 5px 0 5px 0;
+
+            & > .bouton_copier
+            {
+                width: 80px;
+                height: 35px;
+                margin: 0 auto;
+                padding: 5px 0 5px 0;
+                border-radius: 5px;
+                @include border_solid_black;
+                @include font_size_0_9em;
+                @include cursor_pointer;
+                @include transition_all_3_linear;
+
+                &:active
+                {
+                    background-color: black;
+                    color: white;
+                }
+            }
+        }
+
+        & > .texte_copier
+        {
+            width: 100%;
+            height: 150px;
+            @include flexbox_row_center_xy;
+            @include font_size_1em;
+        }
+    }
+}
+
+@media screen and (min-width: 480px)
+{
+    .modal
+    {
+        & > .popup
+        {
+           width: 400px;
+
+           & > .lieu
+           {
+               @include font_size_1em;
+           }
+
+           & > .adr
+           {
+               @include font_size_0_9em;
+           }
+        }
+    }
+}
+
+@media screen and (max-width: 480px)
+{
+    .modal
+    {
+        & > .popup
+        {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 320px)
+{
+    .modal
+    {
+        & > .popup
+        {
+            width: 100%;
+        }
+
+        & > .texte_copier
+        {
+            @include font_size_0_9em;
+        }
+    }
+}

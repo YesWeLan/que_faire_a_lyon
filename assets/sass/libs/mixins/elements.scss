@@ -1,0 +1,237 @@
+///////////////////
+//  BACKGROUND   //
+
+@mixin background_header
+{
+    background: url('../img/lyon.jpg');
+    background-size: cover;
+    background-repeat:  no-repeat;
+    //background-attachment: fixed;
+    background-position: center;
+}
+
+///////////////////
+//     BORDER    //
+
+// SOLID BLACK 1PX
+@mixin border_solid_black
+{
+    border: 1px solid black;
+}
+
+///////////////////
+//   BOX-SHADOW  //
+
+// FOR DIV (CONTAINER)
+@mixin box_shadow
+{
+    box-shadow: 0 5px 5px #C7C7C7;
+}
+
+///////////////////
+//     CURSOR    //
+
+@mixin cursor_pointer
+{
+    cursor: pointer;
+}
+
+@mixin cursor_default
+{
+    cursor: default;
+}
+
+///////////////////
+//    FLEXBOX    //
+
+// ROW
+@mixin flexbox_row
+{
+    display: flex;
+    flex-direction: row;
+}
+
+// ROW CENTER (X,Y)
+@mixin flexbox_row_center_xy
+{
+    @include flexbox_row;
+    justify-content: center;
+    align-items: center;
+}
+
+// COLUMN
+@mixin flexbox_column
+{
+    display: flex;
+    flex-direction: column;
+}
+
+// COLUMN CENTER (X,Y)
+@mixin flexbox_column_center_xy
+{
+    @include flexbox_column;
+    justify-content: center;
+    align-items: center;
+}
+
+///////////////////
+//     FONTS     //
+
+// POPPINS / WEIGHT 200
+@mixin font_poppins_weight_200
+{
+    font-family: 'Poppins';
+    font-weight: 200;
+}
+
+// POPPINS / WEIGHT 300
+@mixin font_poppins_weight_300
+{
+    font-family: 'Poppins';
+    font-weight: 300;
+}
+
+// SIZE
+// 0.8em
+@mixin font_size_0_8em
+{
+    font-size: 0.8em;
+}
+
+// 0.9em
+@mixin font_size_0_9em
+{
+    font-size: 0.9em;
+}
+
+// 1em
+@mixin font_size_1em
+{
+    font-size: 1em;
+}
+
+// 1.1em
+@mixin font_size_1_1em
+{
+    font-size: 1.1em;
+}
+
+// 1.2em
+@mixin font_size_1_2em
+{
+    font-size: 1.2em;
+}
+
+// 1.3em
+@mixin font_size_1_3em
+{
+    font-size: 1.3em;
+}
+
+// 1.4em
+@mixin font_size_1_4em
+{
+    font-size: 1.4em;
+}
+
+// 1.5em
+@mixin font_size_1_5em
+{
+    font-size: 1.5em;
+}
+
+// 1.6em
+@mixin font_size_1_6em
+{
+    font-size: 1.6em;
+}
+
+// 2em
+@mixin font_size_2em
+{
+    font-size: 2em;
+}
+
+// 2.5em
+@mixin font_size_2_5em
+{
+    font-size: 2.5em;
+}
+
+// 3em
+@mixin font_size_3em
+{
+    font-size: 3em;
+}
+
+///////////////////
+//  LOGO HEADER  //
+
+@mixin logo_header_size
+{
+    width: 60px;
+    height: 60px;
+}
+
+////////////////////
+//   TRANSITION   //
+
+@mixin transition_all_3_linear
+{
+    transition: all .3s linear;
+    -webkit-transition: all .3s linear;
+}
+
+/////////////////////
+//   TOP / BOTTOM  //
+//   LEFT / RIGHT  //
+
+@mixin top_right_bottom_left
+{
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+///////////////////
+//  WIDTH/HEIGHT //
+
+// FULL WIDTH/HEIGHT
+@mixin full_width_height
+{
+    width: 100%;
+    height: 100vh;
+}
+
+////////////////////////////////////////////////////////////
+
+/////////////////////
+// CONTAINER STYLE //
+
+@mixin container_title_style
+{
+    color: white;
+    background-color: black;
+}
+
+@mixin container_padding
+{
+    padding: 20px 0 20px 0;
+}
+
+@mixin container_style
+{
+    width: 100%;
+    @include font_poppins_weight_300;
+    @include box_shadow;
+
+    & > p
+    {
+        width: 100%;
+        padding: 15px 0 15px 0;
+        text-align: center;
+        text-transform: uppercase;
+        @include container_title_style;
+    }
+}

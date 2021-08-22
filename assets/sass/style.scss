@@ -1,0 +1,762 @@
+///////////////////
+//     IMPORT    //
+
+@import 'libs/mixins/elements.scss';
+@import 'libs/reset.scss';
+@import 'libs/animations.scss';
+
+///////////////////
+//  INDEX.HTML   //
+
+.noscript
+{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index:104;
+    color: white;
+    background-color: black;
+    text-align: center;
+    @include font-size_1_1em;
+    @include flexbox_row_center_xy;
+    @include top_right_bottom_left;
+}
+
+// HEADER
+.header
+{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 0 10px 0 10px;
+    @include flexbox_row_center_xy;
+}
+
+.header_contains
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container_logo_header
+{
+    @include logo_header_size;
+}
+
+.logo_clair,
+.logo_sombre
+{
+    @include logo_header_size;
+    @include cursor_pointer;
+}
+
+.logo_sombre
+{
+    display: none;
+}
+
+.container_icon_menu
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    @include flexbox_row_center_xy;
+}
+
+.burger_svg,
+.cross_svg
+{
+    position: absolute;
+    z-index: 101;
+    fill: white;
+    @include cursor_pointer;
+}
+
+.burger_svg
+{
+    width: 40px;
+    height: 40px;
+}
+
+.cross_svg
+{
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+
+.header_menu
+{
+    visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: -100;
+    opacity: 0;
+    transition-duration: .3s;
+    @include top_right_bottom_left;
+}
+
+.accueil_header_link,
+.activites_header_link,
+.contact_header_link
+{
+    visibility: hidden;
+    position: relative;
+    width: 100%;
+    height: calc(100vh/3);
+    color: white;
+    background-color: transparent;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: none;
+    @include flexbox_row_center_xy;
+    @include font_size_1_6em;
+    @include cursor_pointer;
+
+    &::before
+    {
+        content:  "";
+        width:  100%;
+        height: 1px;
+        position: absolute;
+        top: 0;
+        left:  0;
+        background-color:  white;
+        transform-origin: 0 100%;
+        transform:  scaleX(0);
+        transition: transform .3s ease-in-out;
+    }
+
+    &::after
+    {
+        content:  "";
+        width:  100%;
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left:  0;
+        background-color:  white;
+        transform-origin: 100% 0;
+        transform:  scaleX(0);
+        transition: transform .3s ease-in-out;
+    }
+
+    &:hover
+    {
+        background-color: rgba(255,255,255,.1);
+        color: white;
+
+        &::before
+        {
+            transform-origin: 100% 0;
+            transform: scaleX(1);
+        }
+
+        &::after
+        {
+            transform-origin: 0 0;
+            transform: scaleX(1);
+        }
+    }
+}
+
+.header_separation
+{
+    display: none;
+    color: white;
+}
+
+// CONTAINER PRINCIPAL
+.container_principal
+{
+    width: 100%;
+}
+
+// FOOTER
+.footer
+{
+    width: 100%;
+    background-color: black;
+}
+
+.footer_menu
+{
+    width: 100%;
+    padding: 20px;
+    @include flexbox_row_center_xy;
+}
+
+.accueil_footer_link,
+.activites_footer_link,
+.contact_footer_link
+{
+    color: #C7C7C7;
+    position: relative;
+    @include cursor_pointer;
+    @include font_size_1em;
+
+    &::after
+    {
+        content: "";
+        width:  100%;
+        height: 1px;
+        position: absolute;
+        bottom: 0;
+        left:  0;
+        background-color:  white;
+        transform-origin: 100% 0 ;
+        transform:  scaleX(0);
+        transition: transform .3s ease-in-out;	
+    }
+
+    &:hover
+    {
+        color: white;
+    }
+
+    &:hover::after
+    {
+        transform-origin: 0 0;
+        transform: scaleX(1);
+    }
+}
+
+.footer_separation
+{
+    color: #C7C7C7;
+    padding: 0 5px 0 5px;
+    @include cursor_default;
+}
+
+.footer > hr
+{
+    width: 65%;
+    height: 1px;
+    margin: 0 auto;
+    border: none;
+    background-color: #C7C7C7;
+}
+
+.container_logo_footer
+{
+    width: 100%;
+    padding: 20px;
+    @include flexbox_row_center_xy;
+}
+
+.container_logo_footer > img
+{
+    width: 60px;
+    margin: 0 15px;
+    @include cursor_pointer;
+}
+
+////////////////////
+//  ACCUEIL.HTML  //
+
+// BIENVENUE
+.container_bienvenue
+{
+    position: relative;
+    animation: $leftCenter;
+
+    & > img
+    {
+        width: 100%;
+        display: block;
+    }
+
+    & > p
+    {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0,0,0,.5);
+        text-transform: uppercase;
+        @include font_size_1_5em;
+    }
+}
+
+// WEATHER
+.container_weather
+{
+    animation: $rightCenter;
+    border-bottom: 1px solid #E8E8E8;
+    @include container_style;
+
+    & > p
+    {
+        @include font_size_1_4em;
+    }
+}
+
+.info_weather
+{
+    width: 90%;
+    margin: 0 auto;
+    @include flexbox_row_center_xy;
+}
+
+.container_icon_description,
+.container_city_temperature
+{
+    width: 50%;
+    @include flexbox_column_center_xy;
+}
+
+.icon_w
+{
+    width: 80%;
+    padding: 10px;
+}
+
+.description_w
+{
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    text-transform: capitalize;
+    font-style: italic;
+    @include font_size_1_1em;
+}
+
+.city_w,
+.temperature_w
+{
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+
+.city_w
+{
+    text-transform: uppercase;
+    @include font_size_2em;
+}
+
+.temperature_w
+{
+    @include font_size_2em;
+}
+
+// LACS
+.container_lacs
+{
+    animation: $leftCenter;
+    @include container_style;
+
+    & > p
+    {
+        @include font_size_1_4em;
+    }
+}
+
+.container_lacs_image
+{
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+
+    &:hover > img
+    {
+        filter: brightness(120%) saturate(100%);
+    }
+
+    & > img
+    {
+        width: 100%;
+        display: block;
+        pointer-events: none;
+    }
+
+    & > p
+    {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+        color: white;
+        background-color: rgba(0,0,0,.8);
+        pointer-events: none;
+    }
+}
+
+////////////////////
+// ACTIVITES.HTML //
+
+.container_activites
+{
+    @include container_style;
+
+    & > p
+    {
+        @include font_size_1_4em;
+    }
+}
+
+.container_categories
+{
+    width: 100%;
+    @include flexbox_row;
+    flex-wrap: wrap;
+}
+
+.visiter,
+.loisirs,
+.manger,
+.shopping
+{
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    @include cursor_pointer;
+
+    &:hover > img
+    {
+        transform: scale(1.1,1.1) rotate(2deg);
+    }
+
+    &:hover > span
+    {
+        opacity: 1;
+    }
+
+    &:hover > p
+    {
+        display: block;
+    }
+}
+
+.visiter > img,
+.loisirs > img,
+.manger > img,
+.shopping > img
+{
+    width: 100%;
+    display: block;
+    transform: scale(1,1) rotate(0);
+}
+
+.visiter > span,
+.loisirs > span,
+.manger > span,
+.shopping > span
+{
+    position: absolute;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    @include top_right_bottom_left;
+}
+
+.visiter > p,
+.loisirs > p,
+.manger > p,
+.shopping > p
+{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+    animation: $rightToCenter, $fadeIn;
+    font-weight: 200;
+    @include font_size_2em;
+}
+
+@media screen and (max-width: 350px)
+{
+    .visiter > p,
+    .loisirs > p,
+    .manger > p,
+    .shopping > p
+    {   
+        @include font_size_1_5em;
+    }
+}
+
+///////////////////
+//  VISITER.HTML //
+//  LOISIRS.HTML //
+//  MANGER.HTML  //
+// SHOPPING.HTML //
+
+.container_visiter,
+.container_loisirs,
+.container_manger,
+.container_shopping
+{
+    width: 100%;
+    padding-bottom: 30px;
+    @include flexbox_column_center_xy;
+    @include container_style;
+
+    & > p
+    { 
+        margin-bottom: 30px;
+        @include font_size_1_4em;
+    }
+    
+    & > div
+    {
+        width: 90%;
+        border: 1px solid #E8E8E8;
+        @include flexbox_column_center_xy;
+        @include box_shadow;
+
+        & > h3
+        {
+            width: 100%;
+            padding: 10px 0 10px 0;
+            text-transform: uppercase;
+            text-align: center;
+            @include container_title_style;
+            @include font_size_1em;
+        }
+
+        & > img
+        {
+            width: 100%;
+
+            &:hover
+            {
+                filter: brightness(120%) saturate(100%);
+            }
+        }
+    }
+
+    & > hr
+    {
+        width: 70%;
+        height: 1px;
+        margin: 50px auto;
+        background-color: #E8E8E8;
+        display: block;
+        border: none;
+    }
+}
+
+.container_description
+{
+    width: 100%;
+}
+
+.container_desc_title
+{
+    width: 100%;
+    padding: 0 15px 0 15px;
+    @include cursor_pointer;
+    @include flexbox_row_center_xy;
+    justify-content: space-between;
+
+    &:hover
+    {
+        background-color: black;
+    }
+
+    &:hover > .desc_title,
+    &:hover > .span_arrow
+    {
+        color: white;
+    }
+}
+
+.desc_title,
+.span_arrow
+{
+    color: darkgray;
+    @include font_size_0_9em;
+}  
+
+.span_arrow
+{
+    transform: rotate(-90deg);
+    @include font_size_2em;
+}
+
+.desc
+{
+    width: 100%;
+    min-height: 0;
+    max-height: 0;
+    padding: 0 15px 0 15px;
+    visibility: hidden;
+    overflow-y: hidden;
+    color: darkgray;
+    opacity: 0;
+    @include font_size_0_8em;
+
+    &:hover
+    {
+        color: white;
+        background-color: black;
+    }
+}
+
+.container_info
+{
+    width: 100%;
+    @include flexbox_row_center_xy;
+}
+
+.addr,
+.site
+{
+    width: 50%;
+    padding: 10px 0 10px 0;
+    border-top: 1px #E8E8E8 solid;
+    @include flexbox_row_center_xy;
+    // si un lieu n'a pas de website, .addr prend toute la place
+    flex-grow: 1;
+    @include cursor_pointer;
+
+    & > svg
+    {
+        fill: gray;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.addr
+{
+    border-right: 1px #E8E8E8 solid;
+
+    &:hover 
+    {
+        background-color: #E8E8E8;
+
+        & > svg
+        {
+            fill: #a30000;
+        }
+    }
+}
+
+.site
+{
+    &:hover 
+    {
+        background-color: #E8E8E8;
+
+        & > svg
+        {
+            fill: #00548c;
+        }
+    }
+}
+
+///////////////////
+//  CONTACT.HTML //
+
+.container_formulaire
+{
+    @include container_style;
+
+    & > p
+    {
+        @include font_size_1_4em
+    }
+}
+
+.formulaire
+{
+    max-width: 500px;
+    margin: 0 auto;
+    @include flexbox_column_center_xy;
+}
+
+.formulaire > label
+{
+    width: 90%;
+    margin: 2% auto 0;
+    padding: 0 0 5px 0;
+    @include font_size_1em;
+}
+
+.formulaire > input
+{
+    width: 90%;
+    height: 30px;
+}
+
+.formulaire > textarea
+{
+    width: 90%;
+    height: 400px;
+    resize: none;
+
+    &:hover,
+    &:focus
+    {
+        outline: none;
+    }
+}
+
+.formulaire > input,
+.formulaire > textarea
+{
+    color: black;
+    margin: 0 auto 1%;
+    padding: 5px;
+    @include font_size_1em;
+    @include border_solid_black;
+}
+
+.formulaire > input[name="name"],
+.formulaire > input[name="email"],
+.formulaire > textarea[name="message"]
+{
+    @include font_size_0_9em;
+}
+
+.formulaire > button
+{
+    width: 100px;
+    margin: 2% auto;
+    padding: 10px;
+    font-size: 1em;
+    color: black;
+    border-radius: 5px;
+    background-color: white;
+    @include border_solid_black;
+    @include font_size_1em;
+
+    &:hover
+    {
+        cursor: pointer;
+        background-color: black;
+        color: white;
+        transition: all .3s ease-in-out;
+    }
+}
+
+//////////////////////////
+// ANIMATIONS CONTAINER //
+
+.container_accueil,
+.container_activites,
+.container_visiter,
+.container_loisirs,
+.container_manger,
+.container_shopping,
+.container_contact
+{
+    animation: $fadeInContainer;
+}
+
+// IMPORT A LA FIN SINON ECRASER PAR LES PROPRIETES CI-DESSUS
+@import 'libs/class_js.scss';
+@import 'libs/responsive.scss';

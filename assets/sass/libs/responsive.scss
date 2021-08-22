@@ -1,0 +1,437 @@
+////////////////////
+// SCREEN > 320px //
+
+@media screen and (max-width: 320px)
+{
+    // HEADER
+    .header
+    {
+        height: 60px;
+    }
+
+    .container_logo_header,
+    .logo_clair,
+    .logo_sombre
+    {
+        width: 40px;
+        height: 40px;
+    }
+
+    .container_icon_menu
+    {
+        width: 40px;
+    }
+
+    .burger_svg
+    {
+        width: 30px;
+        height: 30px;
+    }
+
+    .cross_svg
+    {
+        width: 20px;
+        height: 20px;
+    }
+
+    .accueil_header_link,
+    .activites_header_link,
+    .contact_header_link
+    {
+        @include font_size_1_4em;
+    }
+
+    // FOOTER
+    .footer_menu
+    {
+        @include flexbox_column_center_xy;
+    }
+
+    .accueil_footer_link,
+    .activites_footer_link,
+    .contact_footer_link
+    {
+        padding: 5px 0 5px 0;
+
+        &::before
+        {
+            content: "";
+            width:  100%;
+            height: 1px;
+            position: absolute;
+            top: 0;
+            left:  0;
+            background-color:  white;
+            transform-origin: 0 0;
+            transform:  scaleX(0);
+            transition: transform .3s ease-in-out;	
+        }
+
+        &:hover::before
+        {
+            transform-origin: 100% 0;
+            transform: scaleX(1);
+        }
+    }
+
+    .footer_separation
+    {
+        display: none;
+    }
+
+    .container_logo_footer
+    {
+        @include flexbox_column_center_xy;
+    }
+
+    .container_logo_footer > img
+    {
+        margin: 15px 0;
+    }
+
+    // LACS
+    .container_lacs
+    {
+        & > p
+        {
+            padding: 5px;
+            @include font_size_0_9em;
+        }
+    }
+
+    // CONTAINER CATEGORIES
+    .container_categories
+    {
+        @include flexbox_column_center_xy;
+    } 
+
+    .visiter,
+    .loisirs,
+    .manger,
+    .shopping
+    {
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        
+        &:hover > img
+        {
+            transform: translate(0,-50px) scale(1.1,1.1) rotate(2deg);
+        }
+    }
+
+    .visiter > img,
+    .loisirs > img,
+    .manger > img,
+    .shopping > img
+    {
+        transform: translate(0,-50px);
+    }
+
+    .visiter > p,
+    .loisirs > p,
+    .manger > p,
+    .shopping > p
+    {
+        @include font_size_2em;
+    }
+
+    // ACTIVITES
+    .container_visiter,
+    .container_loisirs,
+    .container_manger,
+    .container_shopping
+    {
+        & > div
+        {
+            width: 100%;
+        }
+    }
+
+    .addr,
+    .site
+    {
+        & > svg
+        {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    // CONTACT
+    .container_formulaire
+    {
+        @include container_style;
+
+        & > p 
+        {
+            @include font_size_1_3em;
+        }
+    }
+
+    .formulaire > label,
+    .formulaire > input,
+    .formulaire > textarea
+    {
+        @include font_size_0_9em;
+    }
+
+    .formulaire > input[name="name"],
+    .formulaire > input[name="email"],
+    .formulaire > textarea[name="message"]
+    {
+        @include font_size_0_8em;
+    }
+
+    .formulaire > button
+    {
+        @include font_size_0_9em;
+    }
+}
+
+////////////////////
+// SCREEN > 680px //
+
+@media screen and (min-width: 680px)
+{
+    // HEADER
+    .header
+    {
+        box-shadow: -5px 0 5px #C7C7C7;
+    }
+
+    // CONTAINER PRINCIPAL
+    .container_principal
+    {
+        width: 90%;
+        min-height: 80vh;
+        margin: 0 auto;
+        @include container_padding;
+    }
+
+    // BIENVENUE
+    .container_bienvenue
+    {
+        width: 80%;
+        margin: 0 auto;
+        @include box-shadow;
+
+        & > p
+        {
+            @include font-size_2em
+        }
+    }
+
+    // WEATHER
+    // LACS
+    .container_weather,
+    .container_lacs
+    {
+        width: 80%;
+        margin: 50px auto 0;
+    }
+
+    // CONTAINER CATEGORIES
+    .visiter,
+    .loisirs,
+    .manger,
+    .shopping
+    {
+        width: 25%;
+    }
+
+    .visiter > img,
+    .loisirs > img,
+    .manger > img,
+    .shopping > img
+    {
+        width: 100%;
+    }
+
+    .visiter > p,
+    .loisirs > p,
+    .manger > p,
+    .shopping > p
+    {
+        @include font_size_1_5em;
+    }
+
+    // ACTIVITES
+    .container_visiter,
+    .container_loisirs,
+    .container_manger,
+    .container_shopping
+    {
+        @include flexbox_row;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        & > div
+        {
+            width: 45%;
+            margin-bottom: 50px;
+        }
+        
+        & > hr
+        {
+            display: none;
+        }
+    }
+}
+
+////////////////////
+// SCREEN > 780px //
+
+@media screen and (min-width: 780px) 
+{
+    // HEADER
+    .header
+    {
+        height: 60px;
+    }
+
+    .header_contains
+    {
+        width: 90%;
+    }
+
+    .container_logo_header,
+    .logo_clair,
+    .logo_sombre
+    {
+        width: 50px;
+        height: 50px;
+    }
+
+    .container_logo_header
+    {
+        position: absolute;
+        z-index: 3;
+    }
+
+    .container_icon_menu
+    {
+        display: none;
+    }
+
+    .header_menu
+    {
+        visibility: visible;
+        z-index: 2;
+        opacity: 1;
+        width: 90%;
+        margin: 0 auto;
+        height: 60px;
+        background-color: transparent;
+        transition: none;
+        @include flexbox_row_center_xy;
+    }
+
+    .accueil_header_link,
+    .activites_header_link,
+    .contact_header_link
+    {
+        visibility: visible;
+        opacity: 1;
+        width: auto;
+        height: auto;
+        display: inline;
+        background-color: transparent;
+        transition: all .3s linear;
+        @include font_size_1_4em;
+    }
+
+    .header_separation
+    {
+        display: inline;
+        padding: 0 10px 0 10px;
+        @include font_size_1_5em;
+    }
+
+    // CONTAINER CATEGORIES
+    .visiter > p,
+    .loisirs > p,
+    .manger > p,
+    .shopping > p
+    {
+        @include font_size_2em;
+    }
+}
+
+@media screen and (min-width: 980px)
+{
+    .visiter > p,
+    .loisirs > p,
+    .manger > p,
+    .shopping > p
+    {
+        @include font_size_2_5em;
+    }
+}
+
+/////////////////////
+// SCREEN > 1280px //
+
+@media screen and (min-width: 1280px)
+{
+    // HEADER
+    .accueil_header_link,
+    .activites_header_link,
+    .contact_header_link
+    {
+        @include font_size_1_5em;
+    }
+
+    // CONTAINER PRINCIPAL
+    .container_principal
+    {
+        width: 80%;
+    }
+}
+
+/////////////////////
+// SCREEN > 1440px //
+
+@media screen and (min-width: 1440px)
+{
+    // HEADER
+    .accueil_header_link,
+    .activites_header_link,
+    .contact_header_link
+    {
+        @include font_size_1_6em;
+    }
+    
+    // CONTAINER PRINCIPAL
+    .container_principal
+    {
+        width: 60%;
+        max-width: 2000px;
+    }
+
+    // ACTIVITES
+    .container_visiter,
+    .container_loisirs,
+    .container_manger,
+    .container_shopping
+    {
+        & > div
+        {
+            & > h3
+            {
+                @include font_size_1_2em;
+            }
+        }
+    }
+
+    .desc_title
+    {
+        @include font_size_1em;
+    }
+
+    .desc
+    {
+        @include font_size_0_9em
+    }
+}

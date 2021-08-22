@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <!-- META -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <!-- FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet"> 
+
+        <!-- FAVICON -->
+        <link rel="icon" href="assets/img/lion.ico" />
+
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css" /><!--media="screen and (max-width: 780px)"-->
+
+        <!-- TTTLE -->
+        <title>Que faire à Lyon ?</title>
+    </head>
+
+
+    <body>
+
+         <!-- NOSCRIPT -->
+        <noscript>
+            <div class="noscript">
+                <span>
+                    Veuillez activer Javascript pour naviguer sur ce site. Merci !
+                </span>
+            </div>
+        </noscript>
+
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header_contains">
+                <div class="container_logo_header">
+                    <img class="logo_clair" src="assets/img/logo/svg/ville_de_lyon_clair.svg" title="Ville de Lyon" />
+                    <img class="logo_sombre" src="assets/img/logo/svg/ville_de_lyon_sombre.svg" title="Ville de Lyon" />
+                </div>
+
+                <div class="container_icon_menu" onclick="showHideMenu()" title="Menu" >
+
+                    <!-- BURGER -->
+                    <svg class="burger_svg" viewBox="0 -53 384 384" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+                        <path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+                        <path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+                    </svg>
+
+                    <!-- CROSS -->
+                    <svg class="cross_svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.001 512.001" xml:space="preserve">
+                        <g>
+                            <path d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717
+                                L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859
+                                c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287
+                                l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285
+                                L284.286,256.002z"/>
+                        </g>
+                    </svg>
+                </div>
+                
+                <nav id="header_menu" class="header_menu">
+                    <a id="accueil_header_link" class="accueil_header_link" onclick="loadPage(this)">Accueil</a>
+                    <span class="header_separation">|</span>
+                    <a id="activites_header_link" class="activites_header_link" onclick="loadPage(this)">Activités</a>
+                    <span class="header_separation">|</span>
+                    <a id="contact_header_link" class="contact_header_link" onclick="loadPage(this)">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- CONTAINER PRINCIPAL -->
+        <div id="container_principal" class="container_principal"></div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <nav class="footer_menu">
+                <a id="accueil_footer_link" class="accueil_footer_link" onclick="loadPage(this)">Accueil</a>
+                <span class="footer_separation">|</span>
+                <a id="activites_footer_link" class="activites_footer_link" onclick="loadPage(this)">Activités</a>
+                <span class="footer_separation">|</span>
+                <a id="contact_footer_link" class="contact_footer_link" onclick="loadPage(this)">Contact</a>
+            </nav>
+            <hr>
+            <div class="container_logo_footer">
+                <img src="/assets/img/logo/ville_de_lyon_white.png" title="Ville de Lyon" id="ville_de_lyon" onclick="logoFooterLink(this)"/>
+                <img src="/assets/img/logo/grand_lyon_white.png" title="Grand Lyon" id="grand_lyon" onclick="logoFooterLink(this)"/>
+                <img src="/assets/img/logo/tcl.png" title="Tcl Sytral" id="tcl_sytral" onclick="logoFooterLink(this)"/>
+            </div>
+        </footer>
+
+        <!-- SCRIPT -->
+        <script type="text/javascript" src="assets/js/fonctions.js"></script>
+        <script type="text/javascript" src="assets/js/ajax.js"></script>
+        <script type="text/javascript" src="assets/js/script.js"></script>
+        <script type="text/javascript" src="assets/js/weather.js"></script>
+
+    </body>
+</html>

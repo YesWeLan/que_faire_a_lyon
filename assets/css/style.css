@@ -673,6 +673,7 @@ a, a:any-link, a:visited {
   width: 100%;
   display: block;
   transform: scale(1.1, 1.1) rotate(0);
+  box-sizing: inherit;
 }
 
 .visiter > span,

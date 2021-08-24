@@ -651,7 +651,7 @@ a, a:any-link, a:visited {
 .loisirs:hover > img,
 .manger:hover > img,
 .shopping:hover > img {
-  transform: scale(1.1, 1.1) rotate(2deg);
+  transform: scale(1.2, 1.2) rotate(2deg);
 }
 .visiter:hover > span,
 .loisirs:hover > span,
@@ -672,7 +672,7 @@ a, a:any-link, a:visited {
 .shopping > img {
   width: 100%;
   display: block;
-  transform: scale(1, 1) rotate(0);
+  transform: scale(1.1, 1.1) rotate(0);
 }
 
 .visiter > span,
